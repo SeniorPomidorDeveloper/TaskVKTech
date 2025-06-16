@@ -1,6 +1,6 @@
 #include "Metric.hpp"
 
-#include <sstream>
+#include "MetricTraits.hpp"
 
 /**
  * @brief Constructor of the Metric<T> class
@@ -43,7 +43,5 @@ std::string_view Metric<T>::getName() const
 template <typename T>
 std::string Metric<T>::fetch()
 {
-    std::stringstream ss;
-    ss << __eventPtr->getValue();
-    return ss.str();
+    return MetricFormatter<T>::format(__eventPtr->getValue());
 }

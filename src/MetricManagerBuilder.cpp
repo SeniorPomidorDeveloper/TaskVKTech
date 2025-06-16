@@ -22,6 +22,7 @@ void MetricManagerBuilder::validate()
  * @brief Set the path to the recording file
  * 
  * @param filePath the path to the recording file.
+ * 
  * @return this. 
  */
 MetricManagerBuilder &MetricManagerBuilder::setFile(const std::string &filePath)
@@ -34,6 +35,7 @@ MetricManagerBuilder &MetricManagerBuilder::setFile(const std::string &filePath)
  * @brief Set the time interval between recordings.
  * 
  * @param timeDelay the time interval.
+ * 
  * @return this
  */
 MetricManagerBuilder &MetricManagerBuilder::setTimeDelay(
@@ -47,6 +49,7 @@ MetricManagerBuilder &MetricManagerBuilder::setTimeDelay(
  * @brief Add a metric.
  * 
  * @param metricPtr - a pointer to the metric.
+ * 
  * @return MetricManagerBuilder& 
  */
 MetricManagerBuilder &MetricManagerBuilder::addMetric(

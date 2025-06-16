@@ -43,7 +43,7 @@ TEST(MetricTest, DoubleMetricFetch)
     EXPECT_CALL(*event, getValue()).WillOnce(testing::Return(36.6));
 
     Metric<double> metric("temperature", event);
-    EXPECT_EQ(metric.fetch(), "36.6");
+    EXPECT_EQ(metric.fetch(), "36.60");
 }
 
 TEST(MetricTest, BoolMetricBasic)

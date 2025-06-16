@@ -74,7 +74,7 @@ void MetricManager::newEntry(std::ostream &out)
         << milliseconds.count();
     std::for_each(__metrics.begin(),
                   __metrics.end(),
-                  [this, &out](auto &metricPtr)
+                  [&out](auto &metricPtr)
                   {
                       out << ' ' << metricPtr->getName() << ' '
                           << metricPtr->fetch();

@@ -4,6 +4,7 @@
 #include <atomic>
 
 #include "IEvent.hpp"
+#include "MetricTraits.hpp"
 
 /**
  * @details A class for tracking metrics without calculating them.
@@ -23,6 +24,10 @@
 template<typename T>
 class SetEvent final : public IEvent<T>
 {
+        static_assert(MetricTypeValidator<T>::is_valid,
+                      "Invalid metric type: must be atomic-safe, default "
+                      "constructible and streamable!");
+
     private:
         std::atomic<T> __value; ///< The metric value
 
@@ -34,7 +39,7 @@ class SetEvent final : public IEvent<T>
         SetEvent &operator=(const SetEvent &other) = delete;
         SetEvent &operator=(SetEvent &&other) = delete;
 
-        void setValue(const T &value) noexcept;
+        void setValue(const T &value);
         T getValue() noexcept override;
 };
 
